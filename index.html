@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171a16">
+<title>Вооружённые силы СНР — официальный портал</title>
+<style>
+:root {
+  --bg:#171a16;
+  --panel:#20241e;
+  --panel2:#292d25;
+  --red:#a52b2b;
+  --red2:#c23b35;
+  --gold:#c5a66b;
+  --text:#e8e5dc;
+  --muted:#aaa99f;
+  --line:#41443a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+.topline{
+  background:#10120f;border-bottom:1px solid var(--line);
+  padding:10px 4%;display:flex;justify-content:space-between;
+  gap:15px;font-size:12px;color:var(--muted);
+}
+.masthead{
+  min-height:190px;padding:28px 5%;
+  display:flex;align-items:center;gap:28px;
+  background:
+  linear-gradient(105deg,rgba(18,22,17,.98),rgba(25,28,22,.86)),
+  repeating-linear-gradient(135deg,#34382c 0 2px,#20241e 2px 9px);
+  border-bottom:4px solid var(--red);
+}
+.emblem{
+  width:125px;height:125px;flex-shrink:0;border:2px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;
+  color:var(--gold);font-size:57px;
+  background:radial-gradient(circle,#5a2723,#24251d 70%);
+  box-shadow:0 0 25px #0008;
+}
+.brand h1{
+  font-size:clamp(25px,4vw,43px);margin:0;
+  letter-spacing:3px;text-transform:uppercase;
+}
+.brand p{
+  color:var(--gold);letter-spacing:4px;font-size:12px;
+  margin:14px 0 0;
+}
+nav{
+  display:flex;flex-wrap:wrap;background:#242820;
+  border-bottom:1px solid var(--line);padding:0 3%;
+}
+nav a{
+  padding:19px 20px;font-size:13px;font-weight:bold;
+  border-right:1px solid var(--line);transition:.2s;
+}
+nav a:hover,nav a.active{background:var(--red)}
+.container{max-width:1450px;margin:auto;padding:25px 3%}
+.section-label{
+  color:var(--gold);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:12px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.8fr 1fr;gap:18px;
+}
+.hero{
+  min-height:365px;position:relative;overflow:hidden;
+  display:flex;align-items:end;padding:35px;
+  background:
+  linear-gradient(0deg,#10130ff2 0%,#10130f30 75%),
+  linear-gradient(120deg,#535a48,#343c34 50%,#722c27);
+  border:1px solid var(--line);
+}
+.hero:before{
+  content:"✦";position:absolute;right:8%;top:5%;
+  font-size:230px;color:#ffffff0b;
+}
+.hero-content{position:relative;max-width:650px}
+.tag{
+  display:inline-block;background:var(--red);
+  padding:8px 12px;font-size:11px;letter-spacing:1px;
+  font-weight:bold;margin-bottom:15px;
+}
+.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:0 0 15px}
+.hero p{color:#d1d0c7;line-height:1.6;max-width:600px}
+.btn{
+  display:inline-block;margin-top:12px;padding:12px 17px;
+  border:1px solid var(--red2);font-size:12px;font-weight:bold;
+}
+.btn:hover{background:var(--red)}
+.news{
+  background:var(--panel);border:1px solid var(--line);padding:20px;
+}
+.news h3{margin:0 0 12px;font-size:19px}
+.news-item{padding:15px 0;border-top:1px solid var(--line)}
+.news-item time{font-size:11px;color:var(--gold)}
+.news-item h4{font-size:14px;line-height:1.4;margin:7px 0}
+.news-item p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
+.cards{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:15px;margin-top:20px;
+}
+.card{
+  min-height:150px;padding:20px;
+  background:linear-gradient(145deg,#34392e,#20241e);
+  border:1px solid var(--line);display:flex;
+  flex-direction:column;justify-content:space-between;
+  transition:.2s;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card .symbol{font-size:27px;color:var(--gold)}
+.card h3{font-size:16px;margin:18px 0 7px}
+.card p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.lower{
+  display:grid;grid-template-columns:1.3fr 1fr;
+  gap:18px;margin-top:20px;
+}
+.panel{background:var(--panel);border:1px solid var(--line);padding:22px}
+.panel h3{margin:0 0 16px;font-size:18px}
+.document{
+  display:flex;justify-content:space-between;gap:15px;
+  padding:13px 0;border-top:1px solid var(--line);
+  font-size:13px;line-height:1.4;
+}
+.document span:last-child{color:var(--muted);white-space:nowrap;font-size:11px}
+.notice{
+  margin-top:20px;padding:15px 18px;
+  border-left:3px solid var(--gold);
+  background:#29271e;color:#d0c7ae;
+  font-size:12px;line-height:1.6;
+}
+footer{
+  margin-top:30px;padding:30px 5%;
+  background:#10120f;border-top:3px solid var(--red);
+  color:var(--muted);font-size:12px;line-height:1.8;
+}
+.footer-inner{max-width:1400px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){
+  .hero-grid,.lower{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .masthead{min-height:145px}
+  .emblem{width:85px;height:85px;font-size:38px}
+  nav a{padding:14px 12px}
+}
+@media(max-width:520px){
+  .topline{font-size:10px;flex-wrap:wrap}
+  .masthead{padding:22px 5%;gap:15px}
+  .emblem{width:65px;height:65px;font-size:29px}
+  .brand h1{font-size:21px;letter-spacing:1px}
+  .brand p{font-size:9px;letter-spacing:1px}
+  nav a{font-size:11px;padding:12px 9px}
+  .container{padding:15px 4%}
+  .hero{padding:23px;min-height:330px}
+  .cards{grid-template-columns:1fr 1fr;gap:9px}
+  .card{padding:14px;min-height:145px}
+  .card h3{font-size:14px}
+  .document{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<div class="topline">
+  <span>★　Социалистическая Народная Республика</span>
+  <span>Елабуга, СНР　|　Официальный информационный портал</span>
+</div>
+
+<header class="masthead">
+  <div class="emblem">★</div>
+  <div class="brand">
+    <h1>Вооружённые силы СНР</h1>
+    <p>СЛУЖИМ НАРОДУ. ЗАЩИЩАЕМ РЕСПУБЛИКУ.</p>
+  </div>
+</header>
+
+<nav>
+  <a class="active" href="#home">⌂ Главная</a>
+  <a href="#command">☆ Командование</a>
+  <a href="#structure">⬟ Структура армии</a>
+  <a href="#formations">✥ Формирования</a>
+  <a href="#history">▤ Военная история</a>
+  <a href="#documents">▧ Документы</a>
+</nav>
+
+<main class="container" id="home">
+
+  <div class="hero-grid">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="tag">ОФИЦИАЛЬНЫЙ ПОРТАЛ</span>
+        <h2>Вооружённые силы Социалистической Народной Республики</h2>
+        <p>Информационный ресурс, посвящённый истории, организации и деятельности вооружённых сил СНР.</p>
+        <a class="btn" href="#history">ИСТОРИЯ ВООРУЖЁННЫХ СИЛ →</a>
+      </div>
+    </section>
+
+    <aside class="news">
+      <h3>★ Актуальные новости</h3>
+      <article class="news-item">
+        <time>ИНФОРМАЦИОННЫЙ РАЗДЕЛ</time>
+        <h4>Официальные сообщения командования</h4>
+        <p>В этом разделе будут публиковаться подтверждённые материалы и заявления.</p>
+      </article>
+      <article class="news-item">
+        <time>АРХИВ</time>
+        <h4>Историческая хроника СНР</h4>
+        <p>Материалы об истории республики и её вооружённых сил.</p>
+      </article>
+      <article class="news-item">
+        <time>ОБНОВЛЕНИЯ ПОРТАЛА</time>
+        <h4>Развитие информационного ресурса</h4>
+        <p>Новые разделы и материалы будут добавляться по мере подготовки.</p>
+      </article>
+    </aside>
+  </div>
+
+  <section class="cards">
+    <a class="card" href="#command">
+      <span class="symbol">★</span>
+      <div><h3>Командование</h3><p>Руководство и высшие органы управления</p></div>
+    </a>
+    <a class="card" href="#structure">
+      <span class="symbol">⬟</span>
+      <div><h3>Структура армии</h3><p>Организация и состав вооружённых сил</p></div>
+    </a>
+    <a class="card" href="#formations">
+      <span class="symbol">✥</span>
+      <div><h3>Формирования</h3><p>Воинские подразделения и соединения</p></div>
+    </a>
+    <a class="card" href="#history">
+      <span class="symbol">▤</span>
+      <div><h3>Военная история</h3><p>Хроника, события и исторические материалы</p></div>
+    </a>
+  </section>
+
+  <div class="lower">
+    <section class="panel" id="documents">
+      <h3>▧　Документы и материалы</h3>
+      <div class="document">
+        <span>Исторические документы СНР</span><span>АРХИВ</span>
+      </div>
+      <div class="document">
+        <span>Материалы о вооружённых силах</span><span>АРХИВ</span>
+      </div>
+      <div class="document">
+        <span>Хроника и справочные материалы</span><span>АРХИВ</span>
+      </div>
+      <div class="document">
+        <span>Официальные публикации</span><span>АРХИВ</span>
+      </div>
+    </section>
+
+    <section class="panel" id="command">
+      <h3>★　Главное командование</h3>
+      <p style="color:var(--muted);font-size:13px;line-height:1.7">
+        Раздел посвящён системе военного управления СНР, её руководящим органам и историческим сведениям о командовании.
+      </p>
+      <a class="btn" href="#structure">СТРУКТУРА УПРАВЛЕНИЯ →</a>
+    </section>
+  </div>
+
+  <div class="notice">
+    <strong>ИНФОРМАЦИОННОЕ УВЕДОМЛЕНИЕ</strong><br>
+    Сайт является фанатским информационным проектом по мотивам вымышленной вселенной «Квартет Ворлд». Он не представляет реальные государственные или военные органы. Демонстрационные разделы будут постепенно заменяться материалами, подтверждёнными источниками.
+  </div>
+
+  <section class="panel" id="structure" style="margin-top:20px">
+    <h3>⬟　Структура вооружённых сил</h3>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7">
+      Справочный раздел об организации вооружённых сил республики. Состав и названия формирований будут опубликованы после проверки исторических источников.
+    </p>
+  </section>
+
+  <section class="panel" id="formations" style="margin-top:15px">
+    <h3>✥　Воинские формирования</h3>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7">
+      Каталог известных воинских формирований СНР. Раздел находится в разработке.
+    </p>
+  </section>
+
+  <section class="panel" id="history" style="margin-top:15px">
+    <h3>▤　Военная история</h3>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7">
+      Исторические события, кампании и хроника вооружённых сил Социалистической Народной Республики.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong style="color:var(--text)">ВООРУЖЁННЫЕ СИЛЫ СНР</strong><br>
+      Информационный портал вымышленной вселенной «Квартет Ворлд».
+    </div>
+    <div>Фанатский проект　|　Неофициальный ресурс<br>© 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
