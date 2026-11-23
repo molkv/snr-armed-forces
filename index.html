@@ -4,302 +4,1001 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#171a16">
+<meta name="theme-color" content="#171b16">
+<meta name="description" content="Информационный портал Вооружённых сил Социалистической Народной Республики.">
 <title>Вооружённые силы СНР — официальный портал</title>
+
 <style>
 :root {
-  --bg:#171a16;
-  --panel:#20241e;
-  --panel2:#292d25;
-  --red:#a52b2b;
-  --red2:#c23b35;
+  --bg:#171b16;
+  --surface:#20261e;
+  --surface2:#292f26;
+  --surface3:#343a30;
+  --red:#a62c2c;
+  --red-light:#c23b35;
   --gold:#c5a66b;
-  --text:#e8e5dc;
-  --muted:#aaa99f;
-  --line:#41443a;
+  --cream:#eee9dc;
+  --muted:#aaa99d;
+  --line:#41473c;
+  --max:1440px;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:var(--text);
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--cream);
   font-family:Arial,Helvetica,sans-serif;
+  line-height:1.5;
 }
-a{color:inherit;text-decoration:none}
-.topline{
-  background:#10120f;border-bottom:1px solid var(--line);
-  padding:10px 4%;display:flex;justify-content:space-between;
-  gap:15px;font-size:12px;color:var(--muted);
+
+a { color:inherit; text-decoration:none; }
+
+button { font:inherit; }
+
+.container {
+  width:min(calc(100% - 64px),var(--max));
+  margin:auto;
 }
-.masthead{
-  min-height:190px;padding:28px 5%;
-  display:flex;align-items:center;gap:28px;
+
+/* TOP BAR */
+
+.topbar {
+  background:#10130f;
+  border-bottom:1px solid #383c33;
+  font-size:11px;
+  color:#c5c3b8;
+}
+
+.topbar-inner {
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.topbar-left,.topbar-right {
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.top-star { color:var(--gold); }
+
+/* HEADER */
+
+.header {
+  position:relative;
+  overflow:hidden;
   background:
-  linear-gradient(105deg,rgba(18,22,17,.98),rgba(25,28,22,.86)),
-  repeating-linear-gradient(135deg,#34382c 0 2px,#20241e 2px 9px);
+    linear-gradient(100deg,#161b15 0%,#22281e 70%,#29251f 100%);
   border-bottom:4px solid var(--red);
 }
-.emblem{
-  width:125px;height:125px;flex-shrink:0;border:2px solid var(--gold);
-  border-radius:50%;display:grid;place-items:center;
-  color:var(--gold);font-size:57px;
-  background:radial-gradient(circle,#5a2723,#24251d 70%);
-  box-shadow:0 0 25px #0008;
+
+.header:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.13;
+  background:repeating-linear-gradient(
+    135deg,transparent 0 7px,#ffffff 7px 8px
+  );
 }
-.brand h1{
-  font-size:clamp(25px,4vw,43px);margin:0;
-  letter-spacing:3px;text-transform:uppercase;
+
+.header-inner {
+  min-height:185px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+  position:relative;
+  z-index:1;
+  padding-top:20px;
+  padding-bottom:20px;
 }
-.brand p{
-  color:var(--gold);letter-spacing:4px;font-size:12px;
-  margin:14px 0 0;
-}
-nav{
-  display:flex;flex-wrap:wrap;background:#242820;
-  border-bottom:1px solid var(--line);padding:0 3%;
-}
-nav a{
-  padding:19px 20px;font-size:13px;font-weight:bold;
-  border-right:1px solid var(--line);transition:.2s;
-}
-nav a:hover,nav a.active{background:var(--red)}
-.container{max-width:1450px;margin:auto;padding:25px 3%}
-.section-label{
-  color:var(--gold);font-size:11px;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:12px;
-}
-.hero-grid{
-  display:grid;grid-template-columns:1.8fr 1fr;gap:18px;
-}
-.hero{
-  min-height:365px;position:relative;overflow:hidden;
-  display:flex;align-items:end;padding:35px;
+
+.emblem {
+  width:118px;
+  height:118px;
+  flex-shrink:0;
+  border:2px solid var(--gold);
+  border-radius:50%;
   background:
-  linear-gradient(0deg,#10130ff2 0%,#10130f30 75%),
-  linear-gradient(120deg,#535a48,#343c34 50%,#722c27);
-  border:1px solid var(--line);
+    radial-gradient(circle at 50% 42%,#63372b,#28251e 72%);
+  display:grid;
+  place-items:center;
+  box-shadow:0 5px 25px #0007;
+  position:relative;
 }
-.hero:before{
-  content:"✦";position:absolute;right:8%;top:5%;
-  font-size:230px;color:#ffffff0b;
+
+.emblem:before {
+  content:"★";
+  color:var(--gold);
+  font-size:58px;
+  text-shadow:0 2px 8px #0008;
 }
-.hero-content{position:relative;max-width:650px}
-.tag{
-  display:inline-block;background:var(--red);
-  padding:8px 12px;font-size:11px;letter-spacing:1px;
-  font-weight:bold;margin-bottom:15px;
+
+.emblem:after {
+  content:"СНР";
+  position:absolute;
+  bottom:14px;
+  font-size:9px;
+  font-weight:bold;
+  letter-spacing:3px;
+  color:var(--cream);
 }
-.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:0 0 15px}
-.hero p{color:#d1d0c7;line-height:1.6;max-width:600px}
-.btn{
-  display:inline-block;margin-top:12px;padding:12px 17px;
-  border:1px solid var(--red2);font-size:12px;font-weight:bold;
+
+.brand h1 {
+  margin:0;
+  font-size:clamp(25px,4vw,43px);
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  line-height:1.15;
 }
-.btn:hover{background:var(--red)}
-.news{
-  background:var(--panel);border:1px solid var(--line);padding:20px;
+
+.brand-subtitle {
+  margin-top:12px;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
 }
-.news h3{margin:0 0 12px;font-size:19px}
-.news-item{padding:15px 0;border-top:1px solid var(--line)}
-.news-item time{font-size:11px;color:var(--gold)}
-.news-item h4{font-size:14px;line-height:1.4;margin:7px 0}
-.news-item p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
-.cards{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:15px;margin-top:20px;
+
+.brand-caption {
+  margin-top:13px;
+  color:#aaa99d;
+  font-size:11px;
+  letter-spacing:1px;
 }
-.card{
-  min-height:150px;padding:20px;
-  background:linear-gradient(145deg,#34392e,#20241e);
-  border:1px solid var(--line);display:flex;
-  flex-direction:column;justify-content:space-between;
+
+/* NAVIGATION */
+
+.nav-wrap {
+  background:#252b23;
+  border-bottom:1px solid var(--line);
+}
+
+.nav {
+  display:flex;
+  align-items:stretch;
+  overflow-x:auto;
+  scrollbar-width:thin;
+}
+
+.nav a {
+  flex-shrink:0;
+  padding:18px 19px;
+  border-right:1px solid #3b4137;
+  font-size:12px;
+  font-weight:bold;
   transition:.2s;
 }
-.card:hover{border-color:var(--gold);transform:translateY(-3px)}
-.card .symbol{font-size:27px;color:var(--gold)}
-.card h3{font-size:16px;margin:18px 0 7px}
-.card p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
-.lower{
-  display:grid;grid-template-columns:1.3fr 1fr;
-  gap:18px;margin-top:20px;
+
+.nav a:hover {
+  background:var(--surface3);
 }
-.panel{background:var(--panel);border:1px solid var(--line);padding:22px}
-.panel h3{margin:0 0 16px;font-size:18px}
-.document{
-  display:flex;justify-content:space-between;gap:15px;
-  padding:13px 0;border-top:1px solid var(--line);
-  font-size:13px;line-height:1.4;
+
+.nav a.active {
+  background:var(--red);
 }
-.document span:last-child{color:var(--muted);white-space:nowrap;font-size:11px}
-.notice{
-  margin-top:20px;padding:15px 18px;
-  border-left:3px solid var(--gold);
-  background:#29271e;color:#d0c7ae;
-  font-size:12px;line-height:1.6;
+
+.nav-icon {
+  color:var(--gold);
+  margin-right:6px;
 }
-footer{
-  margin-top:30px;padding:30px 5%;
-  background:#10120f;border-top:3px solid var(--red);
-  color:var(--muted);font-size:12px;line-height:1.8;
+
+/* PAGE */
+
+.main {
+  padding-top:27px;
+  padding-bottom:35px;
 }
-.footer-inner{max-width:1400px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:850px){
-  .hero-grid,.lower{grid-template-columns:1fr}
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .masthead{min-height:145px}
-  .emblem{width:85px;height:85px;font-size:38px}
-  nav a{padding:14px 12px}
+
+.breadcrumb {
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:17px;
 }
-@media(max-width:520px){
-  .topline{font-size:10px;flex-wrap:wrap}
-  .masthead{padding:22px 5%;gap:15px}
-  .emblem{width:65px;height:65px;font-size:29px}
-  .brand h1{font-size:21px;letter-spacing:1px}
-  .brand p{font-size:9px;letter-spacing:1px}
-  nav a{font-size:11px;padding:12px 9px}
-  .container{padding:15px 4%}
-  .hero{padding:23px;min-height:330px}
-  .cards{grid-template-columns:1fr 1fr;gap:9px}
-  .card{padding:14px;min-height:145px}
-  .card h3{font-size:14px}
-  .document{font-size:11px}
+
+.breadcrumb span { color:var(--gold); }
+
+.section-heading {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:17px;
+}
+
+.section-heading h2 {
+  font-size:19px;
+  margin:0;
+  letter-spacing:.5px;
+}
+
+.section-heading:after {
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--line);
+}
+
+/* HERO */
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.85fr) minmax(290px,1fr);
+  gap:18px;
+}
+
+.hero {
+  min-height:410px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #555044;
+  display:flex;
+  align-items:flex-end;
+  background:
+    linear-gradient(0deg,#11150ff5 0%,#11150f95 42%,#11150f20 100%),
+    radial-gradient(ellipse at 80% 20%,#80513a 0%,transparent 45%),
+    linear-gradient(120deg,#58614a,#343c32 50%,#6b332b);
+}
+
+.hero:before {
+  content:"★";
+  position:absolute;
+  right:7%;
+  top:7%;
+  font-size:210px;
+  line-height:1;
+  color:#ffffff0c;
+  transform:rotate(-12deg);
+}
+
+.hero:after {
+  content:"";
+  position:absolute;
+  width:55%;
+  height:55%;
+  right:-5%;
+  bottom:-10%;
+  border:1px solid #c5a66b22;
+  transform:rotate(35deg);
+}
+
+.hero-content {
+  padding:36px;
+  position:relative;
+  z-index:2;
+  max-width:720px;
+}
+
+.kicker {
+  display:inline-block;
+  background:var(--red);
+  padding:7px 12px;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+  margin-bottom:17px;
+}
+
+.hero h2 {
+  font-size:clamp(29px,4vw,47px);
+  line-height:1.12;
+  margin:0 0 16px;
+  max-width:650px;
+}
+
+.hero p {
+  max-width:570px;
+  color:#d4d0c4;
+  font-size:14px;
+  line-height:1.7;
+  margin:0;
+}
+
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 17px;
+  background:var(--red);
+  border:1px solid var(--red-light);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.5px;
+  transition:.2s;
+}
+
+.button:hover { background:var(--red-light); }
+
+.button-outline {
+  background:#171b16a8;
+  border:1px solid #b9a276;
+}
+
+.button-outline:hover { background:#484435; }
+
+/* NEWS */
+
+.news-panel {
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:21px;
+}
+
+.news-panel h2 {
+  font-size:18px;
+  margin:0 0 12px;
+  padding-bottom:13px;
+  border-bottom:1px solid var(--line);
+}
+
+.news-item {
+  display:block;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+  transition:.2s;
+}
+
+.news-item:last-child { border-bottom:0; }
+
+.news-item:hover h3 { color:var(--gold); }
+
+.news-meta {
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.news-item h3 {
+  font-size:14px;
+  margin:6px 0;
+  line-height:1.4;
+  transition:.2s;
+}
+
+.news-item p {
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.news-more {
+  display:inline-block;
+  margin-top:10px;
+  color:var(--gold);
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* QUICK INFO */
+
+.info-strip {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.info-cell {
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:17px 19px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.info-symbol {
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  background:#a62c2c22;
+  color:var(--gold);
+  font-size:20px;
+}
+
+.info-cell strong {
+  display:block;
+  font-size:12px;
+}
+
+.info-cell small {
+  color:var(--muted);
+  font-size:10px;
+}
+
+/* SECTIONS */
+
+.sections-area { margin-top:32px; }
+
+.section-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.section-card {
+  position:relative;
+  min-height:195px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:21px;
+  background:
+    linear-gradient(0deg,#151913 0%,#20271c 80%);
+  border:1px solid var(--line);
+  transition:.25s;
+}
+
+.section-card:before {
+  content:attr(data-symbol);
+  position:absolute;
+  top:8px;
+  right:15px;
+  color:#c5a66b16;
+  font-size:88px;
+  font-weight:bold;
+  line-height:1;
+}
+
+.section-card:hover {
+  border-color:var(--gold);
+  background:linear-gradient(145deg,#363c2f,#24291f);
+  transform:translateY(-3px);
+}
+
+.card-number {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.section-card h3 {
+  position:relative;
+  font-size:17px;
+  margin:0 0 7px;
+}
+
+.section-card p {
+  position:relative;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+  margin:0;
+}
+
+.card-link {
+  color:var(--gold);
+  font-size:10px;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+/* LOWER BLOCKS */
+
+.lower-grid {
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:18px;
+  margin-top:30px;
+}
+
+.panel {
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:23px;
+}
+
+.panel-title {
+  font-size:17px;
+  margin:0 0 17px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+
+.document-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:13px 0;
+  border-bottom:1px solid #3b4137;
+  font-size:12px;
+}
+
+.document-row:last-child { border-bottom:0; }
+
+.document-row span:last-child {
+  color:var(--gold);
+  font-size:10px;
+  white-space:nowrap;
+}
+
+.panel-description {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.panel-button {
+  margin-top:14px;
+}
+
+/* HISTORY BAND */
+
+.history-band {
+  position:relative;
+  margin-top:20px;
+  padding:27px;
+  background:
+    linear-gradient(100deg,#292d24,#353329);
+  border-left:4px solid var(--red);
+}
+
+.history-band h2 {
+  margin:0 0 8px;
+  font-size:19px;
+}
+
+.history-band p {
+  color:var(--muted);
+  max-width:800px;
+  font-size:12px;
+  line-height:1.7;
+  margin:0;
+}
+
+/* NOTICE */
+
+.notice {
+  margin-top:23px;
+  background:#29271f;
+  border:1px solid #524936;
+  border-left:4px solid var(--gold);
+  padding:16px 20px;
+  font-size:11px;
+  line-height:1.7;
+  color:#d1c8b5;
+}
+
+.notice strong {
+  display:block;
+  color:var(--gold);
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+
+/* FOOTER */
+
+.footer {
+  background:#10130f;
+  border-top:4px solid var(--red);
+  padding:30px 0 20px;
+}
+
+.footer-main {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:35px;
+  padding-bottom:27px;
+}
+
+.footer-title {
+  font-weight:bold;
+  letter-spacing:1px;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.footer p {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin:0;
+}
+
+.footer-heading {
+  font-size:11px;
+  color:var(--gold);
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+.footer-links {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:11px;
+  color:#bcb9ad;
+}
+
+.footer-links a:hover { color:var(--gold); }
+
+.footer-bottom {
+  border-top:1px solid #353a32;
+  padding-top:17px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  color:#898b80;
+  font-size:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px) {
+  .hero-grid { grid-template-columns:1fr; }
+  .hero { min-height:380px; }
+  .section-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:700px) {
+  .container { width:calc(100% - 30px); }
+  .header-inner { min-height:145px; gap:16px; }
+  .emblem { width:77px;height:77px; }
+  .emblem:before { font-size:39px; }
+  .emblem:after { font-size:7px;bottom:9px; }
+  .brand h1 { font-size:22px;letter-spacing:1px; }
+  .brand-subtitle { font-size:9px;letter-spacing:1.5px; }
+  .brand-caption { display:none; }
+  .topbar-inner { padding:9px 0; }
+  .topbar-right { display:none; }
+  .nav a { padding:14px 12px; }
+  .info-strip { grid-template-columns:1fr; }
+  .lower-grid { grid-template-columns:1fr; }
+  .footer-main { grid-template-columns:1fr 1fr; }
+  .footer-main > div:first-child { grid-column:1/-1; }
+}
+
+@media(max-width:450px) {
+  .section-grid { grid-template-columns:1fr 1fr;gap:8px; }
+  .section-card { min-height:175px;padding:14px; }
+  .section-card h3 { font-size:14px; }
+  .hero { min-height:370px; }
+  .hero-content { padding:22px; }
+  .hero h2 { font-size:29px; }
+  .hero p { font-size:12px; }
+  .news-panel { padding:16px; }
+  .footer-main { grid-template-columns:1fr; }
+  .footer-main > div:first-child { grid-column:auto; }
 }
 </style>
 </head>
+
 <body>
 
-<div class="topline">
-  <span>★　Социалистическая Народная Республика</span>
-  <span>Казань, СНР　|　Официальный информационный портал</span>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <span class="top-star">★</span>
+      <span>Социалистическая Народная Республика</span>
+    </div>
+    <div class="topbar-right">
+      <span>Информационный портал</span>
+      <span>|</span>
+      <span>Квартет Ворлд</span>
+    </div>
+  </div>
 </div>
 
-<header class="masthead">
-  <div class="emblem">★</div>
-  <div class="brand">
-    <h1>Вооружённые силы СНР</h1>
-    <p>СЛУЖИМ НАРОДУ. ЗАЩИЩАЕМ РЕСПУБЛИКУ.</p>
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="emblem" aria-label="Демонстрационная эмблема СНР"></div>
+    <div class="brand">
+      <h1>Вооружённые силы СНР</h1>
+      <div class="brand-subtitle">
+        Служим народу. Защищаем республику.
+      </div>
+      <div class="brand-caption">
+        ИНФОРМАЦИОННЫЙ ПОРТАЛ ВООРУЖЁННЫХ СИЛ
+      </div>
+    </div>
   </div>
 </header>
 
-<nav>
-  <a class="active" href="#home">⌂ Главная</a>
-  <a href="#command">☆ Командование</a>
-  <a href="#structure">⬟ Структура армии</a>
-  <a href="#formations">✥ Формирования</a>
-  <a href="#history">▤ Военная история</a>
-  <a href="#documents">▧ Документы</a>
-</nav>
+<!-- NAVIGATION -->
+<div class="nav-wrap">
+  <nav class="container nav">
+    <a class="active" href="#home">⌂ Главная</a>
+    <a href="#command"><span class="nav-icon">★</span>Командование</a>
+    <a href="#structure"><span class="nav-icon">⬟</span>Структура армии</a>
+    <a href="#formations"><span class="nav-icon">✥</span>Формирования</a>
+    <a href="#history"><span class="nav-icon">▤</span>Военная история</a>
+    <a href="#documents"><span class="nav-icon">▧</span>Документы</a>
+  </nav>
+</div>
 
-<main class="container" id="home">
+<!-- MAIN -->
+<main class="container main" id="home">
 
+  <div class="breadcrumb">
+    Главная <span>/</span> Вооружённые силы СНР
+  </div>
+
+  <!-- HERO AND NEWS -->
   <div class="hero-grid">
+
     <section class="hero">
       <div class="hero-content">
-        <span class="tag">ОФИЦИАЛЬНЫЙ ПОРТАЛ</span>
+        <span class="kicker">ОФИЦИАЛЬНЫЙ ИНФОРМАЦИОННЫЙ ПОРТАЛ</span>
         <h2>Вооружённые силы Социалистической Народной Республики</h2>
-        <p>Информационный ресурс, посвящённый истории, организации и деятельности вооружённых сил СНР.</p>
-        <a class="btn" href="#history">ИСТОРИЯ ВООРУЖЁННЫХ СИЛ →</a>
+        <p>
+          Информационный ресурс, посвящённый истории,
+          организации и деятельности вооружённых сил СНР.
+          Материалы республики, исторические публикации
+          и справочная информация.
+        </p>
+        <div class="hero-actions">
+          <a href="#history" class="button">
+            ВОЕННАЯ ИСТОРИЯ →
+          </a>
+          <a href="#documents" class="button button-outline">
+            ДОКУМЕНТЫ
+          </a>
+        </div>
       </div>
     </section>
 
-    <aside class="news">
-      <h3>★ Актуальные новости</h3>
-      <article class="news-item">
-        <time>ИНФОРМАЦИОННЫЙ РАЗДЕЛ</time>
-        <h4>Официальные сообщения командования</h4>
-        <p>В этом разделе будут публиковаться подтверждённые материалы и заявления.</p>
-      </article>
-      <article class="news-item">
-        <time>АРХИВ</time>
-        <h4>Историческая хроника СНР</h4>
-        <p>Материалы об истории республики и её вооружённых сил.</p>
-      </article>
-      <article class="news-item">
-        <time>ОБНОВЛЕНИЯ ПОРТАЛА</time>
-        <h4>Развитие информационного ресурса</h4>
-        <p>Новые разделы и материалы будут добавляться по мере подготовки.</p>
-      </article>
+    <aside class="news-panel">
+      <h2>★ Актуальные новости</h2>
+
+      <a class="news-item" href="#documents">
+        <div class="news-meta">ИНФОРМАЦИОННЫЙ РАЗДЕЛ</div>
+        <h3>Официальные сообщения и публикации</h3>
+        <p>
+          В данном разделе размещаются информационные
+          материалы и подтверждённые публикации.
+        </p>
+      </a>
+
+      <a class="news-item" href="#history">
+        <div class="news-meta">ИСТОРИЧЕСКИЙ АРХИВ</div>
+        <h3>Хроника вооружённых сил СНР</h3>
+        <p>
+          Справочные материалы об истории республики
+          и её вооружённых сил.
+        </p>
+      </a>
+
+      <a class="news-item" href="#structure">
+        <div class="news-meta">СТРУКТУРА</div>
+        <h3>Организация вооружённых сил</h3>
+        <p>
+          Раздел об устройстве и организации вооружённых
+          сил республики.
+        </p>
+      </a>
+
+      <a class="news-item" href="#home">
+        <div class="news-meta">РАЗВИТИЕ ПОРТАЛА</div>
+        <h3>Обновление информационного ресурса</h3>
+        <p>
+          Новые материалы будут публиковаться по мере
+          подготовки и проверки.
+        </p>
+      </a>
+
+      <a class="news-more" href="#documents">
+        ВСЕ ПУБЛИКАЦИИ →
+      </a>
     </aside>
+
   </div>
 
-  <section class="cards">
-    <a class="card" href="#command">
-      <span class="symbol">★</span>
-      <div><h3>Командование</h3><p>Руководство и высшие органы управления</p></div>
-    </a>
-    <a class="card" href="#structure">
-      <span class="symbol">⬟</span>
-      <div><h3>Структура армии</h3><p>Организация и состав вооружённых сил</p></div>
-    </a>
-    <a class="card" href="#formations">
-      <span class="symbol">✥</span>
-      <div><h3>Формирования</h3><p>Воинские подразделения и соединения</p></div>
-    </a>
-    <a class="card" href="#history">
-      <span class="symbol">▤</span>
-      <div><h3>Военная история</h3><p>Хроника, события и исторические материалы</p></div>
-    </a>
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-cell">
+      <div class="info-symbol">★</div>
+      <div>
+        <strong>Командование</strong>
+        <small>Органы военного управления</small>
+      </div>
+    </div>
+
+    <div class="info-cell">
+      <div class="info-symbol">▤</div>
+      <div>
+        <strong>Исторический архив</strong>
+        <small>Хроника и справочные материалы</small>
+      </div>
+    </div>
+
+    <div class="info-cell">
+      <div class="info-symbol">▧</div>
+      <div>
+        <strong>Документальная база</strong>
+        <small>Публикации и материалы</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTIONS -->
+  <section class="sections-area">
+    <div class="section-heading">
+      <h2>Основные разделы портала</h2>
+    </div>
+
+    <div class="section-grid">
+
+      <a href="#command" class="section-card" data-symbol="★">
+        <div class="card-number">01 / УПРАВЛЕНИЕ</div>
+        <h3>Командование</h3>
+        <p>Руководство и система военного управления.</p>
+        <span class="card-link">ПЕРЕЙТИ К РАЗДЕЛУ →</span>
+      </a>
+
+      <a href="#structure" class="section-card" data-symbol="⬟">
+        <div class="card-number">02 / ОРГАНИЗАЦИЯ</div>
+        <h3>Структура армии</h3>
+        <p>Справочная информация об организации вооружённых сил.</p>
+        <span class="card-link">ПЕРЕЙТИ К РАЗДЕЛУ →</span>
+      </a>
+
+      <a href="#formations" class="section-card" data-symbol="✥">
+        <div class="card-number">03 / ФОРМИРОВАНИЯ</div>
+        <h3>Воинские формирования</h3>
+        <p>Каталог известных формирований республики.</p>
+        <span class="card-link">ПЕРЕЙТИ К РАЗДЕЛУ →</span>
+      </a>
+
+      <a href="#history" class="section-card" data-symbol="▤">
+        <div class="card-number">04 / ИСТОРИЯ</div>
+        <h3>Военная история</h3>
+        <p>Исторические события и хроника СНР.</p>
+        <span class="card-link">ПЕРЕЙТИ К РАЗДЕЛУ →</span>
+      </a>
+
+    </div>
   </section>
 
-  <div class="lower">
+  <!-- DOCUMENTS AND COMMAND -->
+  <div class="lower-grid">
+
     <section class="panel" id="documents">
-      <h3>▧　Документы и материалы</h3>
-      <div class="document">
-        <span>Исторические документы СНР</span><span>АРХИВ</span>
+      <h2 class="panel-title">▧ Документы и публикации</h2>
+
+      <div class="document-row">
+        <span>Исторические документы СНР</span>
+        <span>АРХИВ</span>
       </div>
-      <div class="document">
-        <span>Материалы о вооружённых силах</span><span>АРХИВ</span>
+
+      <div class="document-row">
+        <span>Справочные материалы</span>
+        <span>АРХИВ</span>
       </div>
-      <div class="document">
-        <span>Хроника и справочные материалы</span><span>АРХИВ</span>
+
+      <div class="document-row">
+        <span>Хроника и исторические публикации</span>
+        <span>АРХИВ</span>
       </div>
-      <div class="document">
-        <span>Официальные публикации</span><span>АРХИВ</span>
+
+      <div class="document-row">
+        <span>Информационные сообщения</span>
+        <span>АРХИВ</span>
       </div>
     </section>
 
     <section class="panel" id="command">
-      <h3>★　Главное командование</h3>
-      <p style="color:var(--muted);font-size:13px;line-height:1.7">
-        Раздел посвящён системе военного управления СНР, её руководящим органам и историческим сведениям о командовании.
+      <h2 class="panel-title">★ Командование СНР</h2>
+      <p class="panel-description">
+        Раздел посвящён истории военного управления,
+        руководящим органам и сведениям о командовании
+        вооружённых сил республики.
       </p>
-      <a class="btn" href="#structure">СТРУКТУРА УПРАВЛЕНИЯ →</a>
+      <a href="#structure" class="button panel-button">
+        СТРУКТУРА УПРАВЛЕНИЯ →
+      </a>
     </section>
+
   </div>
 
+  <!-- HISTORY -->
+  <section class="history-band" id="history">
+    <h2>Военная история Социалистической Народной Республики</h2>
+    <p>
+      Исторический раздел объединяет справочные материалы,
+      хронику и публикации, посвящённые становлению
+      и развитию вооружённых сил СНР. Исторические сведения
+      будут добавляться с указанием источников.
+    </p>
+  </section>
+
+  <!-- FORMATIONS -->
+  <section class="panel" id="formations" style="margin-top:20px">
+    <h2 class="panel-title">✥ Воинские формирования</h2>
+    <p class="panel-description">
+      Справочный каталог формирований вооружённых сил.
+      Названия, сведения и исторические описания будут
+      добавлены после проверки материалов вселенной.
+    </p>
+  </section>
+
+  <!-- STRUCTURE -->
+  <section class="panel" id="structure" style="margin-top:15px">
+    <h2 class="panel-title">⬟ Организация вооружённых сил</h2>
+    <p class="panel-description">
+      Информационный раздел об устройстве вооружённых сил
+      Социалистической Народной Республики.
+      Материалы находятся в процессе подготовки.
+    </p>
+  </section>
+
+  <!-- NOTICE -->
   <div class="notice">
-    <strong>ИНФОРМАЦИОННОЕ УВЕДОМЛЕНИЕ</strong><br>
-    Сайт является фанатским информационным проектом по мотивам вымышленной вселенной «Квартет Ворлд». Он не представляет реальные государственные или военные органы. Демонстрационные разделы будут постепенно заменяться материалами, подтверждёнными источниками.
+    <strong>ИНФОРМАЦИОННОЕ УВЕДОМЛЕНИЕ</strong>
+    Данный ресурс является неофициальным фанатским
+    информационным проектом по мотивам вымышленной вселенной
+    «Квартет Ворлд». Он не представляет реальные государственные
+    или военные органы. Используемая демонстрационная символика
+    не является подтверждённым государственным гербом СНР.
   </div>
-
-  <section class="panel" id="structure" style="margin-top:20px">
-    <h3>⬟　Структура вооружённых сил</h3>
-    <p style="color:var(--muted);font-size:13px;line-height:1.7">
-      Справочный раздел об организации вооружённых сил республики. Состав и названия формирований будут опубликованы после проверки исторических источников.
-    </p>
-  </section>
-
-  <section class="panel" id="formations" style="margin-top:15px">
-    <h3>✥　Воинские формирования</h3>
-    <p style="color:var(--muted);font-size:13px;line-height:1.7">
-      Каталог известных воинских формирований СНР. Раздел находится в разработке.
-    </p>
-  </section>
-
-  <section class="panel" id="history" style="margin-top:15px">
-    <h3>▤　Военная история</h3>
-    <p style="color:var(--muted);font-size:13px;line-height:1.7">
-      Исторические события, кампании и хроника вооружённых сил Социалистической Народной Республики.
-    </p>
-  </section>
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <strong style="color:var(--text)">ВООРУЖЁННЫЕ СИЛЫ СНР</strong><br>
-      Информационный портал вымышленной вселенной «Квартет Ворлд».
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-main">
+
+      <div>
+        <div class="footer-title">ВООРУЖЁННЫЕ СИЛЫ СНР</div>
+        <p>
+          Информационный портал, посвящённый истории,
+          организации и материалам вооружённых сил
+          Социалистической Народной Республики.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-heading">РАЗДЕЛЫ ПОРТАЛА</div>
+        <div class="footer-links">
+          <a href="#command">Командование</a>
+          <a href="#structure">Структура армии</a>
+          <a href="#formations">Формирования</a>
+          <a href="#history">Военная история</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-heading">ИНФОРМАЦИЯ</div>
+        <div class="footer-links">
+          <a href="#documents">Документы</a>
+          <a href="#home">Главная страница</a>
+          <a href="#home">О проекте</a>
+        </div>
+      </div>
+
     </div>
-    <div>Фанатский проект　|　Неофициальный ресурс<br>© 2026</div>
+
+    <div class="footer-bottom">
+      <span>Фанатский проект · Вселенная «Квартет Ворлд»</span>
+      <span>© 2026 · Неофициальный информационный ресурс</span>
+    </div>
+
   </div>
 </footer>
 
